@@ -8,6 +8,7 @@ import HistoryTable from './components/HistoryTable';
 import BacktestView from './components/BacktestView';
 import KenoLiveBoard from './components/KenoLiveBoard';
 import TraditionalLotteryView from './components/TraditionalLotteryView';
+import PlaybookGuideView from './components/PlaybookGuideView';
 import { Sparkles, ShieldAlert, Cpu } from 'lucide-react';
 
 export default function App() {
@@ -83,8 +84,10 @@ export default function App() {
           isSyncing={isSyncing}
         />
 
-        {/* Dynamic Views: Traditional 3-Region, Keno Live Board or Vietlott Tab Views */}
-        {activeTab === 'traditional' ? (
+        {/* Dynamic Views: Playbook Guide, Traditional 3-Region, Keno Live Board or Vietlott Tab Views */}
+        {activeTab === 'playbook' ? (
+          <PlaybookGuideView />
+        ) : activeTab === 'traditional' ? (
           <TraditionalLotteryView />
         ) : selectedGame === 'keno' ? (
           <KenoLiveBoard />

@@ -1,10 +1,11 @@
 import React from 'react';
-import { Cpu, BarChart3, Ticket, History, Activity, Sparkles, Flame } from 'lucide-react';
+import { Cpu, BarChart3, Ticket, History, Activity, Sparkles, Flame, BookOpen } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab, selectedGame, setSelectedGame }) {
   const tabs = [
     { id: 'predict', label: 'Dự Đoán Vietlott AI', icon: Cpu },
     { id: 'traditional', label: 'Soi Cầu 3 Miền VIP', icon: Flame },
+    { id: 'playbook', label: 'Cẩm Nang & Đặt Cược', icon: BookOpen },
     { id: 'analytics', label: 'Phân Tích Ma Trận', icon: BarChart3 },
     { id: 'tracker', label: 'Theo Dõi & So Vé', icon: Ticket },
     { id: 'history', label: 'Lịch Sử Quay Số', icon: History },

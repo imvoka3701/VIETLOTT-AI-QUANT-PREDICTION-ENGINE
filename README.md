@@ -50,7 +50,34 @@
 
 ---
 
-## 🖥️ 4. Hướng Dẫn Khởi Chạy (Quick Start)
+## 📖 4. Cẩm Nang & Hướng Dẫn Đặt Cược Thực Tế (Lottery Playbook)
+
+Hệ thống tích hợp bảng hướng dẫn thực chiến chi tiết giúp người dùng chuyển hóa các bộ số xác suất từ Tool thành vé cược ngoài đời thực:
+
+### 1. Quy Trình 3 Bước Chuẩn: "Từ Thuật Toán Ra Tiền Thưởng"
+1. **Trích Xuất Bộ Số Tối Ưu**: Lấy vé gợi ý từ AI Ensemble (Mega/Power), thuật toán cân bằng 4 vùng (Keno) hoặc tam giác Pascal & Lô xiên (Soi Cầu 3 Miền). Kiểm tra bảng **Explainable AI (XAI)** để xác nhận số có chỉ số nén chu kỳ gan tốt.
+2. **Chọn Kênh Đặt Thưởng Uy Tín**:
+   - **Vietlott SMS (App chính hãng)**: Đặt cược trên điện thoại qua Viettel/Mobi/Vina, trả thưởng tự động về tài khoản ngân hàng.
+   - **Điểm Bán Hàng POS Vietlott**: Quét mã QR hoặc đọc dãy số đã lưu từ Tool để in vé vật lý.
+   - **Đại Lý / Cổng Trực Tuyến Uy Tín**: Đánh Lô Đề, 3 Càng, Xiên với tỷ lệ ưu đãi 1 ăn 99.
+3. **Chiến Thuật Quản Lý Vốn (Risk Management)**: Tuân thủ công thức Kelly Criterion, tỷ lệ phân bổ vốn 1-2-4 theo khung nuôi 3 ngày, quy tắc cắt lỗ nghiêm ngặt.
+
+### 2. Phân Khúc Chiến Thuật Cược
+- 🔥 **Đánh Lớn Ăn Lớn**:
+  - *Vietlott Bao 7 đến Bao 18*: Vốn 70k - 185M, tăng xác suất nổ Jackpot gấp hàng chục lần, trúng kèm hàng trăm giải phụ.
+  - *Keno Bậc 9 & 10*: Săn 2 Tỷ - 10 Tỷ VNĐ (Bậc 10 trúng 0/10 vẫn được hoàn vốn 100%).
+- 💎 **Đánh Bé Ăn To**:
+  - *Vé Đơn 10k*: Vốn nhỏ giá 1 ổ bánh mì săn Jackpot 40 - 100+ Tỷ VNĐ.
+  - *Đề 3 Càng & 4 Càng*: Vốn 10k ăn 9.600.000đ (1:960) hoặc 88.000.000đ (1:8800).
+  - *Lô Xiên 2, Xiên 3, Xiên 4*: Vốn 20k ăn x10, x40, x100 - x250.
+- 🛡️ **Ăn Chắc Mặc Bền (Thu Lãi Hàng Ngày)**:
+  - *Dàn Đề 36 Số & 20 Số*: Tỷ lệ thắng 36% - 50%, đánh tỷ lệ 1 ăn 99 sinh lời ròng ~63%.
+  - *Song Thủ Lô Kẹp Tã*: Đánh cặp số đối xứng (59 - 95) bảo hiểm chống lộn cầu.
+  - *Keno Bậc 2 & Bậc 4*: Ăn x9 đến x40 với xác suất trúng cao nhất.
+
+---
+
+## 🖥️ 5. Hướng Dẫn Khởi Chạy (Quick Start)
 
 ### Cách 1: Chạy 1-Click (Khuyến nghị trên Windows)
 Double-click vào file:
