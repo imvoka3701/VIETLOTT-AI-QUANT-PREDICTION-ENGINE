@@ -1,9 +1,10 @@
 import React from 'react';
-import { Cpu, BarChart3, Ticket, History, Activity, Sparkles } from 'lucide-react';
+import { Cpu, BarChart3, Ticket, History, Activity, Sparkles, Flame } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab, selectedGame, setSelectedGame }) {
   const tabs = [
-    { id: 'predict', label: 'Dự Đoán AI & GA', icon: Cpu },
+    { id: 'predict', label: 'Dự Đoán Vietlott AI', icon: Cpu },
+    { id: 'traditional', label: 'Soi Cầu 3 Miền VIP', icon: Flame },
     { id: 'analytics', label: 'Phân Tích Ma Trận', icon: BarChart3 },
     { id: 'tracker', label: 'Theo Dõi & So Vé', icon: Ticket },
     { id: 'history', label: 'Lịch Sử Quay Số', icon: History },
@@ -36,28 +37,46 @@ export default function Navbar({ activeTab, setActiveTab, selectedGame, setSelec
             </div>
           </div>
 
-          {/* Game Selector Switcher */}
-          <div className="flex items-center bg-slate-950/80 p-1 rounded-xl border border-slate-800">
-            <button
-              onClick={() => setSelectedGame('mega645')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                selectedGame === 'mega645'
-                  ? 'bg-gradient-to-r from-red-600 to-rose-600 text-white shadow-md shadow-red-600/30'
-                  : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              Mega 6/45
-            </button>
-            <button
-              onClick={() => setSelectedGame('power655')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                selectedGame === 'power655'
-                  ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-md shadow-amber-600/30'
-                  : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              Power 6/55
-            </button>
+          {/* Game Selector Switcher & Realtime Badge */}
+          <div className="flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[11px] font-semibold text-emerald-400 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              vietlott.vn Live
+            </div>
+
+            <div className="flex items-center bg-slate-950/80 p-1 rounded-xl border border-slate-800">
+              <button
+                onClick={() => setSelectedGame('mega645')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  selectedGame === 'mega645'
+                    ? 'bg-gradient-to-r from-red-600 to-rose-600 text-white shadow-md shadow-red-600/30'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                Mega 6/45
+              </button>
+              <button
+                onClick={() => setSelectedGame('power655')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  selectedGame === 'power655'
+                    ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-md shadow-amber-600/30'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                Power 6/55
+              </button>
+              <button
+                onClick={() => setSelectedGame('keno')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                  selectedGame === 'keno'
+                    ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-600/30'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                Keno 10'
+              </button>
+            </div>
           </div>
         </div>
 

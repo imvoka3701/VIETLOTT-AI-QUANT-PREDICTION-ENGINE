@@ -6,10 +6,12 @@ import AnalyticsView from './components/AnalyticsView';
 import LiveTracker from './components/LiveTracker';
 import HistoryTable from './components/HistoryTable';
 import BacktestView from './components/BacktestView';
+import KenoLiveBoard from './components/KenoLiveBoard';
+import TraditionalLotteryView from './components/TraditionalLotteryView';
 import { Sparkles, ShieldAlert, Cpu } from 'lucide-react';
 
 export default function App() {
-  const [selectedGame, setSelectedGame] = useState('mega645'); // 'mega645' | 'power655'
+  const [selectedGame, setSelectedGame] = useState('mega645'); // 'mega645' | 'power655' | 'keno'
   const [activeTab, setActiveTab] = useState('predict'); // 'predict' | 'analytics' | 'tracker' | 'history' | 'backtest'
   
   const [countdownData, setCountdownData] = useState(null);
@@ -81,27 +83,35 @@ export default function App() {
           isSyncing={isSyncing}
         />
 
-        {/* Dynamic Tab Views */}
-        {activeTab === 'predict' && (
-          <PredictionStudio
-            selectedGame={selectedGame}
-            onSaveTickets={() => fetchLatestDrawAndCountdown()}
-          />
+        {/* Dynamic Views: Traditional 3-Region, Keno Live Board or Vietlott Tab Views */}
+        {activeTab === 'traditional' ? (
+          <TraditionalLotteryView />
+        ) : selectedGame === 'keno' ? (
+          <KenoLiveBoard />
+        ) : (
+          <>
+            {activeTab === 'predict' && (
+              <PredictionStudio
+                selectedGame={selectedGame}
+                onSaveTickets={() => fetchLatestDrawAndCountdown()}
+              />
+            )}
+
+            {activeTab === 'analytics' && <AnalyticsView selectedGame={selectedGame} />}
+
+            {activeTab === 'tracker' && (
+              <LiveTracker
+                selectedGame={selectedGame}
+                latestDraw={latestDraw}
+                onRefreshDraws={fetchLatestDrawAndCountdown}
+              />
+            )}
+
+            {activeTab === 'history' && <HistoryTable selectedGame={selectedGame} />}
+
+            {activeTab === 'backtest' && <BacktestView selectedGame={selectedGame} />}
+          </>
         )}
-
-        {activeTab === 'analytics' && <AnalyticsView selectedGame={selectedGame} />}
-
-        {activeTab === 'tracker' && (
-          <LiveTracker
-            selectedGame={selectedGame}
-            latestDraw={latestDraw}
-            onRefreshDraws={fetchLatestDrawAndCountdown}
-          />
-        )}
-
-        {activeTab === 'history' && <HistoryTable selectedGame={selectedGame} />}
-
-        {activeTab === 'backtest' && <BacktestView selectedGame={selectedGame} />}
       </main>
 
       {/* Footer */}

@@ -181,3 +181,30 @@ def get_sum_and_parity_distribution(
         "sum_histogram": bins_data,
         "odd_even_distribution": odd_even_data
     }
+
+@router.get("/co_occurrence_matrix")
+def get_co_occurrence_matrix(
+    game_type: str = Query("mega645", enum=["mega645", "power655", "keno"]),
+    limit_draws: int = Query(150, ge=10, le=500)
+):
+    """
+    Returns full pairwise co-occurrence matrix C(N, 2),
+    top pairs, triplets, and consecutive repeats ('bóng rơi').
+    """
+    from ..algorithms.co_occurrence import CoOccurrenceEngine
+    draws = get_draws(game_type, limit=limit_draws)
+    engine = CoOccurrenceEngine(game_type)
+
+    matrix_data = engine.get_matrix_payload(draws)
+    top_pairs = engine.get_top_pairs(draws, top_k=20)
+    top_triplets = engine.get_top_triplets(draws, top_k=10)
+    consec_repeats = engine.get_consecutive_repeats(draws)
+
+    return {
+        "game_type": game_type,
+        "draws_analyzed": len(draws),
+        "heatmap": matrix_data,
+        "top_pairs": top_pairs,
+        "top_triplets": top_triplets,
+        "consecutive_repeats": consec_repeats
+    }

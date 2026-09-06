@@ -91,3 +91,73 @@ def get_countdown(game_type: str = Query("mega645", enum=["mega645", "power655",
         "estimated_jackpot1": est_jp1,
         "current_jackpot2": latest.get("jackpot2_value", 0) if latest else 0,
     }
+
+@router.get("/today_schedule")
+def get_today_schedule():
+    """
+    Returns today's complete lottery timeline (Keno, XSMN, XSMT, Vietlott, XSMB)
+    with real-time status and time remaining.
+    """
+    from ..config import DAILY_LOTTERY_TIMELINE
+    now = datetime.now()
+    today_weekday = now.weekday()
+
+    schedule_items = []
+    for item in DAILY_LOTTERY_TIMELINE:
+        is_today = True
+        if "days" in item and today_weekday not in item["days"]:
+            is_today = False
+
+        channels = []
+        if "channels" in item and today_weekday in item["channels"]:
+            channels = item["channels"][today_weekday]
+
+        schedule_items.append({
+            "id": item["id"],
+            "name": item["name"],
+            "time": item["time"],
+            "category": item["category"],
+            "is_today": is_today,
+            "channels": channels,
+            "frequency": item.get("frequency", "")
+        })
+
+    return {
+        "current_time": now.strftime("%Y-%m-%d %H:%M:%S"),
+        "weekday": today_weekday,
+        "schedule": schedule_items
+    }
+
+@router.get("/keno/latest")
+def get_keno_latest_draws(limit: int = Query(20, ge=1, le=50)):
+    """Returns the latest Keno draws from the live stream"""
+    from ..core.database import get_keno_draws, get_latest_keno_draw
+    draws = get_keno_draws(limit=limit)
+    return {
+        "count": len(draws),
+        "latest": get_latest_keno_draw(),
+        "draws": draws
+    }
+
+@router.get("/keno/quant")
+def get_keno_quant_analysis():
+    """Returns quantitative stats for Keno: hot/cold, streaks, and zones"""
+    from ..core.database import get_keno_draws
+    from ..algorithms.keno_quant import KenoQuantEngine
+    draws = get_keno_draws(limit=30)
+    engine = KenoQuantEngine()
+    stats = engine.analyze_keno_history(draws)
+    return stats
+
+@router.get("/keno/predict")
+def get_keno_prediction(
+    pick_size: int = Query(5, ge=2, le=10),
+    strategy: str = Query("balanced", enum=["balanced", "hot_momentum", "counter_cyclical"])
+):
+    """Generates AI-recommended Keno ticket for a given pick size"""
+    from ..core.database import get_keno_draws
+    from ..algorithms.keno_quant import KenoQuantEngine
+    draws = get_keno_draws(limit=30)
+    engine = KenoQuantEngine()
+    ticket = engine.generate_optimal_ticket(draws, pick_size=pick_size, strategy=strategy)
+    return ticket

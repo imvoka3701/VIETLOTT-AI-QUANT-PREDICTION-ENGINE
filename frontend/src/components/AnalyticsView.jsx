@@ -43,7 +43,7 @@ export default function AnalyticsView({ selectedGame }) {
         fetch(`/api/analytics/frequency?game_type=${selectedGame}`),
         fetch(`/api/analytics/gaps?game_type=${selectedGame}`),
         fetch(`/api/analytics/markov_matrix?game_type=${selectedGame}`),
-        fetch(`/api/analytics/pairs?game_type=${selectedGame}`),
+        fetch(`/api/analytics/co_occurrence_matrix?game_type=${selectedGame}`),
         fetch(`/api/analytics/distribution?game_type=${selectedGame}`)
       ]);
 
@@ -367,6 +367,38 @@ export default function AnalyticsView({ selectedGame }) {
                   ))}
                 </div>
               </div>
+
+              {/* Consecutive Repeats (Bóng Rơi) */}
+              {pairsData.consecutive_repeats && (
+                <div className="lg:col-span-2 glass-panel p-6 rounded-2xl flex flex-col gap-4 border border-indigo-500/30">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+                    <div>
+                      <h3 className="text-base font-bold text-white flex items-center gap-2">
+                        <Flame className="w-5 h-5 text-amber-400" />
+                        Thống Kê Nhịp Bóng Rơi (Xuất Hiện 2 Kỳ Liên Tiếp)
+                      </h3>
+                      <p className="text-xs text-slate-400">
+                        Đo lường xác suất một quả bóng xuất hiện ở kỳ trước và tiếp tục rơi lại ở kỳ sau.
+                      </p>
+                    </div>
+                    <span className="px-3 py-1 bg-amber-500/20 text-amber-300 font-mono font-bold text-xs rounded-full border border-amber-500/30">
+                      TB: {pairsData.consecutive_repeats.average_repeats_per_draw} bóng/kỳ
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-2">
+                    {pairsData.consecutive_repeats.most_repeated_balls?.map((b) => (
+                      <div key={b.number} className="p-3 bg-slate-950/70 border border-slate-800 rounded-xl flex items-center justify-between">
+                        <LotteryBall number={b.number} size="sm" />
+                        <div className="text-right">
+                          <span className="text-xs font-mono font-bold text-amber-300">{b.repeat_count} lần</span>
+                          <p className="text-[10px] text-slate-500">lặp liên tiếp</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
 

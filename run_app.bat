@@ -3,7 +3,7 @@ title VIETLOTT AI QUANT LAUNCHER
 color 0b
 
 echo ========================================================
-echo       VIETLOTT AI QUANT & PREDICTION ENGINE
+echo       VIETLOTT AI QUANT ^& PREDICTION ENGINE
 echo ========================================================
 echo.
 echo [*] Dang khoi dong Backend FastAPI tai cong 8000...
@@ -19,6 +19,8 @@ echo [+] Backend API:   http://127.0.0.1:8000/docs
 echo [+] Web Dashboard: http://localhost:5173
 echo ========================================================
 echo.
+echo Dang cho Backend khoi tao du lieu...
+ping 127.0.0.1 -n 5 >nul
+
 echo Dang mo trinh duyet...
-timeout /t 3 >nul
 start http://localhost:5173

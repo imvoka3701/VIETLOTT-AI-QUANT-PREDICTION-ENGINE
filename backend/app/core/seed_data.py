@@ -96,11 +96,30 @@ def generate_realistic_vietlott_history(game_type: str, count: int = 500) -> Lis
     return draws
 
 def seed_database_if_empty():
-    """Checks and seeds initial dataset if database is empty"""
+    """Checks and seeds database with real Vietlott data if possible, with mock fallback"""
+    from .crawler import sync_real_vietlott_data, fetch_keno_latest
+    from .database import insert_many_keno_draws, get_keno_draws
+
     for gtype in ["mega645", "power655"]:
         count = get_total_draws_count(gtype)
-        if count < 50:
-            print(f"[*] Seeding initial historical database for {gtype}...")
-            draws = generate_realistic_vietlott_history(gtype, count=300)
-            inserted = insert_many_draws(draws)
-            print(f"[+] Successfully seeded {inserted} draws for {gtype}.")
+        if count < 10:
+            print(f"[*] Syncing real historical data for {gtype} from vietlott.vn...")
+            try:
+                res = sync_real_vietlott_data(gtype)
+                print(f"[+] {res['message']}")
+            except Exception as e:
+                print(f"[-] Real sync failed ({e}), using realistic synthetic fallback...")
+                draws = generate_realistic_vietlott_history(gtype, count=300)
+                inserted = insert_many_draws(draws)
+                print(f"[+] Successfully seeded {inserted} fallback draws for {gtype}.")
+
+    # Seed Keno
+    if len(get_keno_draws(limit=5)) == 0:
+        try:
+            keno_draws = fetch_keno_latest()
+            if keno_draws:
+                insert_many_keno_draws(keno_draws)
+                print(f"[+] Synced {len(keno_draws)} initial live Keno draws.")
+        except Exception as e:
+            print(f"[-] Initial Keno sync error: {e}")
+
