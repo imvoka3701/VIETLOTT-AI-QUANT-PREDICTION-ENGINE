@@ -77,7 +77,28 @@ Hệ thống tích hợp bảng hướng dẫn thực chiến chi tiết giúp n
 
 ---
 
-## 🖥️ 5. Hướng Dẫn Khởi Chạy (Quick Start)
+## 🌟 5. Bộ Tiện Ích Thực Chiến Dành Riêng Cho Người Chơi (User-Centric Suite)
+
+1. **🔥 Trung Tâm Thực Chiến "Chốt Số Hôm Nay" (Daily VIP Action Center)**:
+   - Tự động hiển thị đài mở thưởng trong ngày và gợi ý ngay **3 Bộ Số Vàng** được AI chấm điểm cao nhất.
+   - **1-Click Tạo Cú Pháp Vietlott SMS (9969)**: Soạn sẵn định dạng chuẩn cho Viettel, Mobifone, Vinaphone để gửi cược trong 3 giây.
+   - **Thẻ Vé Số Điện Tử Có Mã Vạch**: Hiển thị mô phỏng vé thật để người chơi lưu về điện thoại mang ra quầy POS in vé.
+2. **🔮 Sổ Mơ Dân Gian Tích Hợp AI Quant (AI Dream Book)**:
+   - Tra cứu hơn 1000+ giấc mơ và sự kiện phong thủy (mơ thấy rắn, mơ thấy tiền, mơ thấy trúng số, tai nạn, cá to...).
+   - AI Quant tự động phân tích và chỉ ra con số nào trong giấc mơ đang có xác suất nổ cao nhất trong ngày.
+3. **🎯 Máy Dò Vé Thông Minh & Tự Động Tính Thuế TNCN (Smart Win Checker)**:
+   - Nhập/chọn 6 số vé của bạn, hệ thống đối soát tức thì với kết quả quay thật trên `vietlott.vn`.
+   - Tính toán chính xác tiền thưởng danh nghĩa (Gross) và **số tiền thực nhận về tay (Net Cash)** sau khi tự động khấu trừ 10% thuế TNCN theo Luật Thuế Việt Nam (cho phần thưởng > 10 triệu).
+4. **📈 Bảng Cầu Đang Chạy Thông & Bạc Nhớ Đầu Đuôi Câm (Hot Streak Board)**:
+   - Theo dõi các cầu ăn thông 3 - 4 ngày liên tiếp.
+   - Tra cứu quy luật Bạc Nhớ khi đài hôm qua câm đầu / câm đuôi.
+5. **⚡ Công Tắc Chuyển Chế Độ "Thực Chiến" & "Chuyên Gia Quant Pro"**:
+   - Chế độ Thực Chiến: Đơn giản, to rõ, dễ hiểu, chốt số nhanh.
+   - Chế độ Chuyên Gia: Mở rộng toàn bộ ma trận Markov, Hazard, Monte Carlo, GA và phân tích đặc trưng chuỗi.
+
+---
+
+## 🖥️ 6. Hướng Dẫn Khởi Chạy (Quick Start)
 
 ### Cách 1: Chạy 1-Click (Khuyến nghị trên Windows)
 Double-click vào file:

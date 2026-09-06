@@ -9,11 +9,16 @@ import BacktestView from './components/BacktestView';
 import KenoLiveBoard from './components/KenoLiveBoard';
 import TraditionalLotteryView from './components/TraditionalLotteryView';
 import PlaybookGuideView from './components/PlaybookGuideView';
+import DailyVIPActionCenter from './components/DailyVIPActionCenter';
+import DreamBookLookup from './components/DreamBookLookup';
+import SmartTicketChecker from './components/SmartTicketChecker';
+import StreakLiveBoard from './components/StreakLiveBoard';
 import { Sparkles, ShieldAlert, Cpu } from 'lucide-react';
 
 export default function App() {
   const [selectedGame, setSelectedGame] = useState('mega645'); // 'mega645' | 'power655' | 'keno'
-  const [activeTab, setActiveTab] = useState('predict'); // 'predict' | 'analytics' | 'tracker' | 'history' | 'backtest'
+  const [activeTab, setActiveTab] = useState('vip'); // 'vip' (default practical view) | 'traditional' | 'checker' | 'dreambook' | 'streaks' | 'playbook' | 'predict' | 'analytics'
+  const [isProMode, setIsProMode] = useState(false); // false = Practical Player Mode, true = Quant Pro Mode
   
   const [countdownData, setCountdownData] = useState(null);
   const [latestDraw, setLatestDraw] = useState(null);
@@ -73,6 +78,8 @@ export default function App() {
         setActiveTab={setActiveTab}
         selectedGame={selectedGame}
         setSelectedGame={setSelectedGame}
+        isProMode={isProMode}
+        setIsProMode={setIsProMode}
       />
 
       {/* Main Content Area */}
@@ -84,8 +91,20 @@ export default function App() {
           isSyncing={isSyncing}
         />
 
-        {/* Dynamic Views: Playbook Guide, Traditional 3-Region, Keno Live Board or Vietlott Tab Views */}
-        {activeTab === 'playbook' ? (
+        {/* Dynamic Views: Practical Everyday Views or Deep Quant Pro Views */}
+        {activeTab === 'vip' ? (
+          <DailyVIPActionCenter
+            selectedGame={selectedGame}
+            setSelectedGame={setSelectedGame}
+            onNavigateToTab={(tab) => setActiveTab(tab)}
+          />
+        ) : activeTab === 'checker' ? (
+          <SmartTicketChecker selectedGame={selectedGame} />
+        ) : activeTab === 'dreambook' ? (
+          <DreamBookLookup />
+        ) : activeTab === 'streaks' ? (
+          <StreakLiveBoard />
+        ) : activeTab === 'playbook' ? (
           <PlaybookGuideView />
         ) : activeTab === 'traditional' ? (
           <TraditionalLotteryView />
