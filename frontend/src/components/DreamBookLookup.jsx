@@ -21,19 +21,19 @@ export default function DreamBookLookup() {
   const dreamDictionary = [
     { id: 1, keyword: 'mơ thấy rắn', title: 'Mơ thấy rắn bò vào nhà / Rắn cắn', numbers: [32, 42, 72], cang: 332, hotPick: 42, reason: 'Rắn là điềm biến động tài lộc; số 42 đang có chu kỳ gan 11 ngày, nhịp rơi cực đẹp.' },
     { id: 2, keyword: 'mơ thấy tiền', title: 'Mơ thấy nhặt được tiền / Được cho tiền', numbers: [12, 62, 76], cang: 662, hotPick: 62, reason: 'Tiền tài ứng với cặp 12 - 62; số 62 trùng ma trận Markov kéo từ kỳ trước.' },
-    { id: 3, keyword: 'mơ thấy trúng số', title: 'Mơ thấy trúng số độc đắc / Trúng Vietlott', numbers: [08, 68, 86], cang: 868, hotPick: 68, reason: 'Lộc tài phát đạt; cặp 68 - 86 là tâm điểm Cầu Pascal hôm nay.' },
-    { id: 4, keyword: 'mơ thấy cá', title: 'Mơ thấy bắt được cá to / Đàn cá bơi', numbers: [01, 41, 81], cang: 481, hotPick: 81, reason: 'Cá lớn mang lại vận may bất ngờ; số 81 thuộc góc Q4 Keno có mật độ nổ cao.' },
+    { id: 3, keyword: 'mơ thấy trúng số', title: 'Mơ thấy trúng số độc đắc / Trúng Vietlott', numbers: [8, 68, 86], cang: 868, hotPick: 68, reason: 'Lộc tài phát đạt; cặp 68 - 86 là tâm điểm Cầu Pascal hôm nay.' },
+    { id: 4, keyword: 'mơ thấy cá', title: 'Mơ thấy bắt được cá to / Đàn cá bơi', numbers: [1, 41, 81], cang: 481, hotPick: 81, reason: 'Cá lớn mang lại vận may bất ngờ; số 81 thuộc góc Q4 Keno có mật độ nổ cao.' },
     { id: 5, keyword: 'mơ thấy người chết', title: 'Mơ thấy người chết sống lại / Đám ma', numbers: [26, 65, 88], cang: 288, hotPick: 88, reason: 'Sinh dữ tử lành; kép 88 đang chạm nhịp rơi 3 kỳ liên tiếp ở miền Bắc.' },
     { id: 6, keyword: 'mơ thấy người yêu cũ', title: 'Mơ thấy người yêu cũ quay lại', numbers: [64, 74, 78], cang: 764, hotPick: 64, reason: 'Duyên xưa tương sinh; số 64 có đà xung lượng Momentum tăng trưởng dương.' },
-    { id: 7, keyword: 'mơ thấy tai nạn', title: 'Mơ thấy tai nạn xe máy / Ô tô đâm', numbers: [07, 70, 80], cang: 870, hotPick: 70, reason: 'Họa hóa phúc; cặp đảo 07 - 70 là thế Song Thủ Lô kẹp tã chống xịt.' },
+    { id: 7, keyword: 'mơ thấy tai nạn', title: 'Mơ thấy tai nạn xe máy / Ô tô đâm', numbers: [7, 70, 80], cang: 870, hotPick: 70, reason: 'Họa hóa phúc; cặp đảo 07 - 70 là thế Song Thủ Lô kẹp tã chống xịt.' },
     { id: 8, keyword: 'mơ thấy đám cưới', title: 'Mơ thấy đám cưới của mình / Bạn bè', numbers: [20, 26, 90], cang: 920, hotPick: 20, reason: 'Hỷ sự mang lại may mắn lớn; số 20 nổ đều đặn trong top 5 bóng về nhiều.' },
     { id: 9, keyword: 'mơ thấy chó', title: 'Mơ thấy chó cắn / Chó con quấn chân', numbers: [29, 59, 95], cang: 559, hotPick: 59, reason: 'Khuyển trung thành; số 59 là Bạch Thủ Lô được thuật toán Poisson dự báo.' },
     { id: 10, keyword: 'mơ thấy rụng răng', title: 'Mơ thấy rụng răng không chảy máu', numbers: [31, 52, 62], cang: 531, hotPick: 31, reason: 'Biến đổi vận khí; số 31 đang nằm trong chuỗi hồi phục sau 14 kỳ vắng mặt.' },
-    { id: 11, keyword: 'mơ thấy nước', title: 'Mơ thấy nước ngập tràn nhà / Nước lũ', numbers: [06, 56, 66], cang: 666, hotPick: 66, reason: 'Thủy quản tài; số kép 66 hội tụ xác suất Bayes cao nhất hôm nay.' },
+    { id: 11, keyword: 'mơ thấy nước', title: 'Mơ thấy nước ngập tràn nhà / Nước lũ', numbers: [6, 56, 66], cang: 666, hotPick: 66, reason: 'Thủy quản tài; số kép 66 hội tụ xác suất Bayes cao nhất hôm nay.' },
     { id: 12, keyword: 'mơ thấy mất xe', title: 'Mơ thấy bị trộm mất xe máy', numbers: [14, 41, 48], cang: 448, hotPick: 14, reason: 'Mất của sinh tài; số 14 vừa xuất hiện ở kỳ áp chót, xác suất lô rơi đạt 78%.' },
-    { id: 13, keyword: 'mơ thấy bay', title: 'Mơ thấy mình bay trên trời', numbers: [05, 25, 65], cang: 205, hotPick: 25, reason: 'Thăng tiến công danh; số 25 liên tục kéo bóng ở các giải nhì và ba.' },
+    { id: 13, keyword: 'mơ thấy bay', title: 'Mơ thấy mình bay trên trời', numbers: [5, 25, 65], cang: 205, hotPick: 25, reason: 'Thăng tiến công danh; số 25 liên tục kéo bóng ở các giải nhì và ba.' },
     { id: 14, keyword: 'mơ thấy vàng', title: 'Mơ thấy nhặt được vàng / Đeo vàng', numbers: [37, 79, 99], cang: 779, hotPick: 79, reason: 'Thần tài lớn gõ cửa; số 79 có hệ số tương quan đồng xuất hiện Jaccard cao.' },
-    { id: 15, keyword: 'mơ thấy cháy', title: 'Mơ thấy cháy nhà / Lửa bốc cao', numbers: [07, 67, 87], cang: 867, hotPick: 67, reason: 'Hỏa phát vượng tài; số 67 nổ 4 lần trong 30 kỳ gần nhất.' },
+    { id: 15, keyword: 'mơ thấy cháy', title: 'Mơ thấy cháy nhà / Lửa bốc cao', numbers: [7, 67, 87], cang: 867, hotPick: 67, reason: 'Hỏa phát vượng tài; số 67 nổ 4 lần trong 30 kỳ gần nhất.' },
     { id: 16, keyword: 'mơ thấy máu', title: 'Mơ thấy chảy máu tay / chân', numbers: [19, 69, 96], cang: 919, hotPick: 19, reason: 'Huyết phát lộc; số 19 có nhịp nén Bayesian Hazard vượt ngưỡng 1.6.' }
   ];
 
